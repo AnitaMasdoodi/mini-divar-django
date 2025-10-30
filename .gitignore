@@ -4,9 +4,10 @@ __pycache__/
 *$py.class
 
 # Virtual environments
-venv/
+.venv/
 .env/
 .env.*
+.env
 
 # Django specific
 *.sqlite3
