@@ -3,7 +3,6 @@ from rest_framework.permissions import IsAdminUser, AllowAny
 from core.models import Category
 from core.serializers import CategorySerializer
 
-
 class CategoryListCreateApiView(ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
