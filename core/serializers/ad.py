@@ -21,3 +21,4 @@ class AdSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Description must contain alphabet')
         elif len(data) < 10:
             raise serializers.ValidationError('Description must contain at least ten character')
+        return data
