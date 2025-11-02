@@ -3,11 +3,13 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from core.models import Ad
 from core.serializers import AdSerializer
+from core.pagination import Paginator
 
 
 class AdListCreateApiView(ListCreateAPIView):
     queryset = Ad.objects.all()
     serializer_class = AdSerializer
+    pagination_class = Paginator
     permission_classes = [IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
@@ -38,6 +40,7 @@ class AdDetailApiView(RetrieveUpdateDestroyAPIView):
 
 class MyAdsListApiView(ListAPIView):
     serializer_class = AdSerializer
+    pagination_class = Paginator
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):

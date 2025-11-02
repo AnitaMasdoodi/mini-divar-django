@@ -1,9 +1,11 @@
 from rest_framework import generics, permissions
 from core.models import Message
 from core.serializers.message import MessageSerializer
+from core.pagination import Paginator
 
 class MessageListCreateView(generics.ListCreateAPIView):
     serializer_class = MessageSerializer
+    pagination_class = Paginator
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):

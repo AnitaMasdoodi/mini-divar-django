@@ -1,10 +1,12 @@
 from rest_framework import generics, permissions
 from core.models import Conversation
 from core.serializers.conversation import ConversationSerializer
+from core.pagination import Paginator
 from django.db.models import Q
 
 class ConversationListCreateView(generics.ListCreateAPIView):
     serializer_class = ConversationSerializer
+    pagination_class = Paginator
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
