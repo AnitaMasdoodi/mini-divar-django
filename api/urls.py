@@ -1,5 +1,4 @@
 from django.urls import path, include
-from api.views import MyAdsListApiView
 
 app_name = 'api'
 urlpatterns = [
@@ -9,4 +8,5 @@ urlpatterns = [
     path('conversations/', include('api.endpoints.conversation', namespace='conversation')),
     path('messages/', include('api.endpoints.message', namespace='message')),
     path('my-ads/', include('api.endpoints.my_ads', namespace='my_ads')),
+    path('swagger/', include('api.endpoints.swagger')),
 ]
