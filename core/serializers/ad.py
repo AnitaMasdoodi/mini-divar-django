@@ -11,5 +11,13 @@ class AdSerializer(serializers.ModelSerializer):
 
     def validate_title(self, data: str):
         if data.isnumeric():
-            raise serializers.ValidationError('title must contains alphabet')
+            raise serializers.ValidationError('Title must contain alphabet')
+        elif len(data) < 2:
+            raise serializers.ValidationError('Title must contain at least two letters')
         return data
+
+    def validate_description(self, data: str):
+        if data.isnumeric():
+            raise serializers.ValidationError('Description must contain alphabet')
+        elif len(data) < 10:
+            raise serializers.ValidationError('Description must contain at least ten character')
