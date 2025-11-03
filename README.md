@@ -59,7 +59,7 @@ http://127.0.0.1:8000/swagger/
 | GET | `/api/v1/ads/` | List ads (Search + Filter + Pagination) |
 | POST | `/api/v1/ads/` | Create new ad |
 | GET | `/api/v1/ads/<slug>/` | Ad detail |
-| GET | `/api/v1/my-ads/` | List ads just for logged-in user (only his ads) |
+| GET | `/api/v1/my-ads/` | List ads just for logged-in user (only his/her ads) |
 
 **Filtering examples**
 ```bash
@@ -80,7 +80,6 @@ http://127.0.0.1:8000/swagger/
 
 - JWT Authentication
 - Favorites / Bookmark ads
-- Image optimization
 
 ---
 
