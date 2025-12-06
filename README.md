@@ -1,8 +1,9 @@
 # 🏙️ Mini Divar API
 
-A lightweight **classified ads backend** inspired by [Divar](https://divar.ir), built with **Django REST Framework**, **PostgreSQL**, and **Docker**.  
+A lightweight **classified ads backend** inspired by [Divar](https://divar.ir), built with **Django REST Framework**, **PostgreSQL**, **Redis**, **JWT**, and **Django Channels** for real-time chat.  
 
-This backend includes **ads system**, **search & filters**, **pagination**, **user-owned ads**, and **private chat (conversations + messages)** between buyers and sellers.
+This backend includes **ads system**, **search & filters**, **pagination**, **user-owned ads**, and **private chat (conversations + messages)** between buyers and sellers.  
+JWT authentication is implemented with **Redis** to manage sessions and tokens efficiently.
 
 ---
 
@@ -10,13 +11,19 @@ This backend includes **ads system**, **search & filters**, **pagination**, **us
 
 | Feature | Explanation |
 |------------|-------------|
-| **🔐 Auth** | Session based (JWT will be added later) |
+| **🔐 Auth** | JWT-based authentication using Redis |
 | **📝 Ads CRUD** | create + list + detail (slug based) + update/delete only by owner |
 | **🗂 Categories & Cities** | choose category and city for every ad |
 | **🔍 Search & Filter** | search by title + filter by category & city |
 | **📄 Pagination** | custom pagination class |
-| **💬 Chat System** | conversations & messages between users |
+| **💬 Chat System** | real-time chat between users implemented with Django Channels |
 | **🕵️ Swagger** | API Docs with Swagger UI |
+
+---
+
+## ⚠️ Work in Progress
+
+JWT authentication with Redis and real-time chat using Django Channels are currently under development and will be fully implemented soon.
 
 ---
 
@@ -24,10 +31,11 @@ This backend includes **ads system**, **search & filters**, **pagination**, **us
 
 | Component | Technology |
 |------------|-------------|
-| **Backend** | Django, Django REST Framework |
+| **Backend** | Django, Django REST Framework, Django Channels |
 | **Database** | PostgreSQL |
+| **Cache / Message Broker** | Redis (used for JWT management & Channels) |
 | **Containerization** | Docker, Docker Compose |
-| **Auth** | JWT |
+| **Auth** | JWT with Redis |
 | **Pagination** | DRF built-in pagination |
 | **Docs UI** | Swagger |
 
@@ -78,7 +86,6 @@ http://127.0.0.1:8000/swagger/
 
 ## 🛠 Future Improvements (planned)
 
-- JWT Authentication
 - Favorites / Bookmark ads
 
 ---
